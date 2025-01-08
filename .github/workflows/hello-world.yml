@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
       # Étape 1 : Afficher "Hello World" dans les logs.
       - name: Print Hello World
         run: echo "Hello World"  # Commande pour afficher un message simple dans les logs.
