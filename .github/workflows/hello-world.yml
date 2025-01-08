@@ -15,7 +15,8 @@ jobs:
   greeting:
     # Indique que le workflow s'exécutera sur une machine Ubuntu.
     runs-on: ubuntu-latest
-
+    env:                # Déclaration des variables d'environnement
+      MESSAGE: "Déploiement réussi"
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -36,5 +37,7 @@ jobs:
       # Étape 4 : Exécuter le linter.
       - name: Run lint
         run: npm run lint          # Vérifie la qualité du code avec le script lint.
+      - name: Display MESSAGE variable
+        run: echo "$MESSAGE"  # Affiche la valeur de la variable MESSAGE
 
 
