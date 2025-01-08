@@ -23,7 +23,7 @@ jobs:
 
       # Étape 2 : Configurer Node.js.
       - name: Setup Node.js
-        uses: actions/setup-node@v3  # Utilise une action GitHub pour configurer Node.js.
+        uses: actions/setup-node@v4  # Utilise une action GitHub pour configurer Node.js.
         with:
           node-version: '20'        # Définit la version de Node.js à utiliser.
 
