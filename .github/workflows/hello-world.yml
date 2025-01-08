@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3  # Utilise une action GitHub pour configurer Node.js.
         with:
-          node-version: '16'        # Définit la version de Node.js à utiliser.
+          node-version: '18'        # Définit la version de Node.js à utiliser.
 
       # Étape 3 : Installer les dépendances.
       - name: Install dependencies
