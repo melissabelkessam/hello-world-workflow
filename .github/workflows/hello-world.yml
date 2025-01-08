@@ -1,0 +1,21 @@
+# Le nom du workflow (il apparaîtra dans l'onglet Actions sur GitHub).
+name: Hello World Workflow
+
+# Le déclencheur : le workflow s'exécutera lorsqu'un push sera effectué sur la branche main.
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # Contient les tâches à exécuter. Ici, le job s'appelle "greeting".
+  greeting:
+    # Indique que le workflow s'exécutera sur une machine Ubuntu.
+    runs-on: ubuntu-latest
+
+    steps:
+      # Nom de l'étape, pour identifier ce qu'elle fait.
+      - name: Print Hello World
+        # La commande exécutée. Ici, elle affiche "Hello World" dans les logs.
+        run: echo "Hello World"
+
