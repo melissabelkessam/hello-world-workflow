@@ -28,11 +28,14 @@ jobs:
           node-version: '20'        # Définit la version de Node.js à utiliser.
 
       # Étape 3 : Installer les dépendances.
+      - name: Cleann cache
+        run: npm cache clean          # Installe les dépendances définies dans package.json.
+
       - name: Install dependencies
-        run: npm install -y            # Installe les dépendances définies dans package.json.
+        run: npm install          # Installe les dépendances définies dans package.json.
 
       # Étape 4 : Exécuter le linter.
       - name: Run lint
-        run: npm run lint -y          # Vérifie la qualité du code avec le script lint.
+        run: npm run lint          # Vérifie la qualité du code avec le script lint.
 
 
