@@ -1,11 +1,14 @@
 # Le nom du workflow (il apparaîtra dans l'onglet Actions sur GitHub).
 name: Hello World Workflow
 
-# Le déclencheur : le workflow s'exécutera lorsqu'un push sera effectué sur la branche main.
+# Les déclencheurs : le workflow s'exécutera lors d'un push ou d'une pull request sur la branche main.
 on:
-  push:
+  push:               # Déclencheur pour un push
     branches:
-      - main
+      - main          # Sur la branche main uniquement
+  pull_request:       # Déclencheur pour une pull request
+    branches:
+      - main          # Sur la branche main uniquement
 
 jobs:
   # Contient les tâches à exécuter. Ici, le job s'appelle "greeting".
@@ -14,8 +17,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Nom de l'étape, pour identifier ce qu'elle fait.
+      # Étape 1 : Afficher "Hello World" dans les logs.
       - name: Print Hello World
-        # La commande exécutée. Ici, elle affiche "Hello World" dans les logs.
-        run: echo "Hello World"
+        run: echo "Hello World"  # Commande pour afficher un message simple dans les logs.
+
+      # Étape 2 : Configurer Node.js.
+      - name: Setup Node.js
+        uses: actions/setup-node@v3  # Utilise une action GitHub pour configurer Node.js.
+        with:
+          node-version: '16'        # Définit la version de Node.js à utiliser.
+
+      # Étape 3 : Installer les dépendances.
+      - name: Install dependencies
+        run: npm install            # Installe les dépendances définies dans package.json.
+
+      # Étape 4 : Exécuter le linter.
+      - name: Run lint
+        run: npm run lint           # Vérifie la qualité du code avec le script lint.
+
 
