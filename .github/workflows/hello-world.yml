@@ -23,9 +23,9 @@ jobs:
 
       # Étape 2 : Configurer Node.js.
       - name: Setup Node.js
-        uses: actions/setup-node@v4  # Utilise une action GitHub pour configurer Node.js.
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'        # Définit la version de Node.js à utiliser.
+          node-version: 18     # Définit la version de Node.js à utiliser.
 
       # Étape 3 : Installer les dépendances.
       - name: Cleann cache
